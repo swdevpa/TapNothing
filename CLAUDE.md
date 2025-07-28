@@ -21,10 +21,16 @@ TapNothing is a comprehensive React Native mobile app built with Expo SDK 53 tha
 The app follows a **comprehensive hook-based React architecture** with extensive feature implementation:
 
 ### Core Architecture Pattern
-- **App.tsx**: Main component orchestrating 8 custom hooks with SafeAreaProvider integration
-- **Custom Hooks**: Complete business logic separation across 8 specialized hooks
-- **UI Components**: Theme-aware components with advanced animations and behaviors
-- **Constants**: Centralized configuration including Easter eggs, anti-achievements, and device integration
+- **App.tsx**: Main orchestrator importing and coordinating 8 custom hooks with SafeAreaProvider integration
+- **8 Custom Hooks**: Complete business logic separation into specialized domains with state coordination through props and callbacks
+- **4 UI Components**: Theme-aware components with progressive animations and advanced behaviors
+- **6 Constants Files**: Centralized configuration for themes, Easter eggs, anti-achievements, notifications, messages, and sounds
+
+### State Management Pattern
+- **Hook-based state management** using React's built-in `useState` and `useCallback` - no external state libraries
+- **Persistent storage** via `expo-secure-store` for all settings, statistics, themes, and achievement data
+- **State coordination** through prop passing and callback functions between hooks
+- **Session tracking** with comprehensive usage analytics and behavior pattern analysis
 
 ### Key Architectural Decisions
 
@@ -90,19 +96,20 @@ All components updated to support enhanced features:
 ## Development Notes
 
 ### Enhanced Dependencies
-- `expo-haptics`: Tactile feedback system
-- `expo-sensors`: Device motion and shake detection
-- `expo-battery`: Battery level monitoring
-- `expo-media-library`: Screenshot saving to device gallery
-- `expo-sharing`: Social sharing functionality
-- `react-native-view-shot`: Screenshot capture capabilities
+- **Core Framework**: Expo SDK 53, React Native 0.79.5, React 19.0.0, TypeScript 5.1.3
+- **Device Integration**: `expo-sensors`, `expo-battery`, `expo-haptics`, `react-native-safe-area-context`
+- **Media & Sharing**: `expo-media-library`, `expo-sharing`, `react-native-view-shot`
+- **Notifications & Audio**: `expo-notifications`, `expo-audio` (foundation for future sound)
+- **Storage**: `expo-secure-store` for comprehensive persistent data management
 
 ### Critical Implementation Details
-- All hooks integrate seamlessly with error boundaries and fallback mechanisms
-- Screenshot functionality includes automatic overlay hiding for clean captures
-- Haptic feedback degrades gracefully on devices without capabilities
-- Statistics persist across app sessions with automatic backup mechanisms
-- Device integration features work across iOS/Android with platform-specific optimizations
+- **Error Handling**: All hooks integrate seamlessly with error boundaries and fallback mechanisms
+- **Cross-Platform**: iOS/Android compatibility with platform-specific optimizations throughout
+- **Performance**: `useCallback` and proper dependency arrays, React Native Animated API integration
+- **Accessibility**: Graceful degradation when device features (haptics, sensors) are unavailable
+- **Screenshot System**: Automatic overlay hiding for clean captures with themed sharing messages
+- **Progressive Complexity**: Button behaviors evolve based on tap count (200+ invisibility, 300+ teleportation, 400+ glitching)
+- **Theme Behavioral Influence**: Themes affect not just visuals but entire user experience and device integration
 
 ### Current Implementation Status
 **✅ Comprehensive Feature Set**: All MVP, Post-MVP, and advanced enhancement features fully implemented including the complete 8-hook architecture, device integration, sharing system, and achievement tracking.
